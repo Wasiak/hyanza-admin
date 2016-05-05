@@ -9,11 +9,13 @@ define(['knockout', 'text!./side-bar.html'], function(ko, template) {
       list: [
         {
           id: 1,
-          name: 'opcja1'
+          name: 'opcja1',
+          icon: 'http://lorempixel.com/30/30/'
         },
         {
           id: 2,
           name: 'opcja2',
+          icon: 'http://lorempixel.com/30/30/',
           child: [{
                 id: 5,
                 name: 'opcja5',
@@ -25,11 +27,13 @@ define(['knockout', 'text!./side-bar.html'], function(ko, template) {
         },
         {
           id: 3,
-          name: 'opcja3'
+          name: 'opcja3',
+          icon: 'http://lorempixel.com/30/30/'
         },
         {
           id: 4,
           name: 'opcja4',
+          icon: 'http://lorempixel.com/30/30/',
           child: [{
               id: 7,
               name: 'opcja7'
@@ -41,15 +45,12 @@ define(['knockout', 'text!./side-bar.html'], function(ko, template) {
     var loadAccordionMenu = function() {
       var catWithChildren = $('.has-children label');
       catWithChildren.on('click', function() {
-        // $('.subcategory-list').removeClass('open');
         $(this).parent().find('.subcategory-list').toggleClass('open');
       });
     };
 
     var buildCategoriesMenu = function(categories) {
       var equipmentList = $('#side-menu');
-      // var wallElemList = $('#wall-elem-cat-list');
-      // var subGroupCounter = 1;
 
       categories.list.forEach(function(category) {
         var cat = $('<li></li>');
@@ -57,24 +58,18 @@ define(['knockout', 'text!./side-bar.html'], function(ko, template) {
         cat.attr({
           id: category.id
         });
+        var icon = $('<img></img>');
+        icon.appendTo(cat);
+        icon.attr({
+          src: category.icon
+        });
+
         if (category.child) {
           cat.addClass('has-children');
-          // var input = $('<input></input>');
-          // input.appendTo(cat);
-          // input.attr({
-          //   type: 'checkbox',
-          //   name: 'sub-group-' + subGroupCounter,
-          //   id: 'sub-group-' + subGroupCounter
-          // });
 
           $('<label></label>')
-          // .attr({
-          //   'for': 'sub-group-' + subGroupCounter
-          // })
           .text(category.name)
           .appendTo(cat);
-
-          // subGroupCounter += 1;
 
           var subList = $('<ul></ul>');
           subList.appendTo(cat);
