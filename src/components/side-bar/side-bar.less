@@ -17,19 +17,42 @@ side-bar {
     li {
       display: block;
       width: 100%;
-      margin-bottom: 5px;
+      /*margin-bottom: 5px;*/
 
       img {
         display: inline-block;
-        width: 10%;
+        width: 9%;
         margin: 0 4% 0 4%;
+        vertical-align: middle;
       }
 
       div {
         display: inline-block;
         width: 82%;
         height: 100%;
+        background-color: red;
+      }
+
+      label {
+        font-size: 14px;
       }
     }
+  }
+
+  
+
+  .subcategory-list {
+    display: block;
+    max-height: 0;
+    transition: max-height 0.4s;
+    overflow: hidden;
+  }
+
+  .subcategory-list li {
+    margin-left: 10px;
+  }
+
+  .subcategory-list.open{
+    max-height: 100px;
   }
 }

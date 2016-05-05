@@ -5,7 +5,8 @@
   "repository": "git@github.com:michalbe/hyanza-admin.git",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "lint": "node node_modules/jshint/bin/jshint ."
+    "lint": "node node_modules/jshint/bin/jshint .",
+    "validate": "npm ls"
   },
   "license": "UNLICENSED",
   "private": "true",

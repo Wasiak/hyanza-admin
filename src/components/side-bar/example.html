@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>side-bar example</title>
+      <link href="../../../dist/style/main.css" rel="stylesheet">
+      <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <script>
+      var require = {
+        baseUrl: ".",
+        paths: {
+            "knockout": "../../bower_modules/knockout/dist/knockout",
+            "text":     "../../bower_modules/requirejs-text/text"
+        }
+      };
+      </script>
+      <script src="../../bower_modules/requirejs/require.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  </head>
+  <body style="background-color: #ccc; text-align:center; padding-top: 100px;">
+    <script>
+      require(['knockout'], function(ko) {
+        ko.components.register('side-bar', { require: 'side-bar' });
+
+        ko.applyBindings({});
+      });
+    </script>
+    <side-bar></side-bar>
+  </body>
+</html>
